@@ -6562,9 +6562,22 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem; } }
 
-body, div, p {
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0; }
+
+ul, ol {
+  list-style: none; }
 
 [type="checkbox"] {
   margin: 0; }

@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="dist/index.css">
-    <title>Receipt Bank</title>
-    <meta name="description" content="Receipt Bank vous permet de scanner, stocker et suivre vos factures">
-    <meta name="keywords" content="capture, factures, scan">
-</head>
-
-<body>
-
-    <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo left"><i class="material-icons">arrow_back</i>Détails</a>
-                <ul class="right">
-                    <li><a href="#"><i class="material-icons">send</i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
+export const displayInformations = (element) => {
+    element.innerHTML = `
     <div>
         <div class="row facture">
             <img class="img-facture" src="https://via.placeholder.com/200" alt="facture">
@@ -74,9 +50,5 @@
             </ul>
         </div>
     </div>
-
-    <script type="text/javascript" src="dist/index.js"></script>
-
-</body>
-
-</html>
+    `; 
+}; 

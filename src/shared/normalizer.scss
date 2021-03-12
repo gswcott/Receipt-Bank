@@ -1,8 +1,21 @@
-body, div, p{
-    margin: 0; 
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
     padding: 0;
 }
 
+ul, ol{
+    list-style: none;
+}
 [type=checkbox] {
     margin: 0;
 }
@@ -14,4 +27,6 @@ div, p, header, footer {
     box-sizing: border-box; 
 
 }
+
+
 

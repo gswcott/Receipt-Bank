@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt Bank</title>
-    <link rel="stylesheet" type="text/css" href="dist/index.css">
-    <script type="text/javascript" src="./dist/index.js"></script>
-</head>
-<body>
+export const displayNewData = (element) => {
+    element.innerHTML = `
     <main class="container">
         <div class="row">
             <div class="col s12 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
@@ -58,6 +49,6 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="./dist/index.js"></script>
-</body>
-</html>
+    `;
+    M.Sidenav.init(document.querySelectorAll("select"));
+};

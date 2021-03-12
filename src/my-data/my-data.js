@@ -1,42 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt bank</title>
-    <link type="text/css" rel="stylesheet" href="./dist/index.css" />
-</head>
-
-<body>
-    <header>
-        <div class="navbar-fixed">
-            <nav class="bg-color">
-                <div class="nav-wrapper">
-                    <a href="#" data-target="menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="left hide-on-med-and-down">
-                        <li><a href="index.html"><span class="material-icons">home</span></a></li>
-                        <li><a href="my-data.html">Files</a></li>
-                        <li><a href="new-data.html">Analyse an image</a></li>
-                        <li><a href="import-photo.html">Import an image</a></li>
-                    </ul>
-                    <div class="icon-align">
-                        <a href="stat.html"><span class="material-icons">insert_chart</span></a>
-                        <a href="share-popup.html"><span class="material-icons">share</span></a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <ul class="sidenav" id="menu">
-            <li><a href="index.html"><span class="material-icons">home</span></a></li>
-            <li><a href="my-data.html">Files</a></li>
-            <li><a href="new-data.html">Analyse an image</a></li>
-            <li><a href="import-photo.html">Import an image</a></li>
-        </ul>
-    </header>
-    <main class="container">
-        <div class="row">
+export const displayMyData = (element) => {
+    element.innerHTML = `
+    <div class="row">
             <div class="col s12 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
                 <legend style="width: 100%;">Choose file(s)</legend>
             </div>
@@ -211,7 +175,6 @@
                 </p>
             </form>
         </div>
-    </main>
         <footer class="container">
             <div class="row ta-c">
                 <div class="col s6 offset-s3 m4 offset-m4 l2 offset-l5">
@@ -219,7 +182,5 @@
                 </div>
             </div>
         </footer>
-    <script type="text/javascript" src="./dist/index.js"></script>
-</body>
-
-</html>
+    `;
+};
