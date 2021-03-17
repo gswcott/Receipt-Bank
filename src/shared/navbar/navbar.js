@@ -1,31 +1,27 @@
+//import { displayImportPhoto } from "../../import-photo/import-photo";
+//import { displayAssist } from "../../assist/assist";
+import { displayHome } from "../../home/home";
+import template from "./navbar.html";
+
 export const displayNavBar = (element) => {
-    element.innerHTML = `
-        <div class="navbar-fixed">
-        <nav>
-            <div class="nav-wrapper">
-                <a href="index.html" class="brand-logo">Receipt Bank</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Changer email</a></li>
-                    <li><a href="badges.html">Préférences</a></li>
-                    <li><a href="collapsible.html">Autorisations</a></li>
-                    <li><a href="assist.html">Assistance</a></li>
-                    <li><a href="mobile.html">A propos</a></li>
-                </ul>
-                <ul class="right">
-                    <li><a href="#"><i class="material-icons">add</i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Changer email</a></li>
-        <li><a href="badges.html">Préférences</a></li>
-        <li><a href="collapsible.html">Autorisations</a></li>
-        <li><a href="assist.html">Assistance</a></li>
-        
-        <li><a href="mobile.html">A propos</a></li>
-    </ul>
-    `; 
+    element.innerHTML = template; 
     M.Sidenav.init(document.querySelectorAll(".sidenav"));
+    const logo = document.querySelector(".brand-logo"); 
+    logo.onclick = () =>{
+        displayHome(document.querySelector("main"));
+    }; 
+    const listNavBar = document.querySelectorAll(".link"); 
+    listNavBar.forEach((linkEle) =>{
+        linkEle.onclick = () =>{
+            //console.log(linkEle.getAttribute("data-link"));
+            const fn = window[linkEle.getAttribute("data-link")]; 
+            fn(document.querySelector("main"));
+            /*
+            if("Import a photo" === linkEle.innerText){
+                displayImportPhoto(document.querySelector("main"));
+            }else if ("Assistance" === linkEle.innerText){
+                displayAssist(document.querySelector("main"));
+            }*/
+        };
+    }); 
 };

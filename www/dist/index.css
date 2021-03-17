@@ -6599,13 +6599,12 @@ nav {
   background-color: #01579b !important;
   padding-left: 1.25em; }
 
-#camera {
+.camera {
   background-color: #c2185b;
   position: fixed;
-  bottom: 5%;
-  right: 5%; }
+  bottom: 3%; }
 
-#camera:hover {
+.camera:hover {
   background-color: #8c0032; }
 
 .teal {
@@ -6666,12 +6665,43 @@ section {
   color: white;
   vertical-align: middle; }
 
+.below {
+  z-index: 1;
+  position: relative;
+  bottom: 5%; }
+
+.action {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
+
+.take-picture {
+  background: #1488CC;
+  border-color: #1488CC;
+  width: 60px;
+  height: 60px;
+  border-radius: 5rem;
+  margin: 20px; }
+
+.img-fit {
+  width: 100%;
+  height: 100%; }
+
+.row {
+  margin: 0; }
+
+.col {
+  margin: 0; }
+
 .icon-align {
   text-align: right; }
 
-.facture-size {
-  width: 100%;
-  height: 100%; }
+.loader {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  top: 50%; }
 
 .facture {
   width: 100vw;
@@ -6680,7 +6710,7 @@ section {
 .img-facture {
   width: 100%; }
 
-#webcam {
+.webcam {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -6688,6 +6718,9 @@ section {
   top: 0;
   left: 0;
   z-index: -1; }
+
+canvas {
+  display: none; }
 
 .settings-butons {
   display: flex;

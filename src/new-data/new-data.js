@@ -1,54 +1,48 @@
-
-export const displayNewData = (element) => {
-    element.innerHTML = `
-    <main class="container">
-        <div class="row">
-            <div class="col s12 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
-                <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">close</i></a>
-            </div>
-            <div class="vh-40 col s12 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
-                <img class="facture-size" src="images/factureExample.jpg">
-            </div>
-            <form method="post" action="" class="col s12 m8 offset-m2 l6 offset-l3 xl4 offset-xl4">
-                <label>Type</label>
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose</option>
-                    <option value="type1">type 1</option>
-                    <option value="type2">type 2</option>
-                    <option value="other">other</option>
-                </select>
-                <label>Category</label>
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose</option>
-                    <option value="category1">category 1</option>
-                    <option value="category2">category 2 </option>
-                    <option value="other">other</option>
-                </select>
-        
-                <label>Devise conversion</label>
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose</option>
-                    <option value="other">other</option>
-                </select>
-        
-                <label>Save in which folder</label>
-                <select class="browser-default">
-                    <option value="" disabled selected>Choose</option>
-                    <option value="folder1">folder 1</option>
-                    <option value="folder2">folder 2 </option>
-                    <option value="folder3">folder 3</option>
-                </select>
-            </form>
-
-        </div>
-    </main>
-    <footer class="container">
-        <div class="row ta-c">
-            <div class="col s6 offset-s3 m4 offset-m4 l2 offset-l5">
-                <a href="#" class="waves-effect waves-light btn">analyse</a>
-            </div>
-        </div>
-    </footer>
-    `;
+import { displayCamera } from "../camera/camera";
+import template from "./new-data.html";
+import Tesseract from 'tesseract.js';
+import { displayResult} from "../result/result";
+export const displayNewData = (element, src) => {
+    //console.log("src importé : ", src);
+    element.innerHTML = template;
+    const photo = document.querySelector("img");
+    photo.src = src;
+    photo.src = "./images/factureExample1.jpg";
+    //console.log(photo);
     M.Sidenav.init(document.querySelectorAll("select"));
+    const closeBtn = document.querySelector(".btn-floating.btn-large.waves-effect.waves-light.green");
+    closeBtn.onclick = () => {
+        displayCamera(element);
+    }
+    const analyseBtn = document.querySelector(".waves-effect.waves-light.btn");
+    analyseBtn.onclick = () => {
+        const loader = document.querySelector(".preloader-wrapper");
+        console.log(loader);
+        loader.innerHTML=`
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>`
+        analyseBtn.classList.add("disabled");
+        Tesseract.recognize(
+            photo.src,
+            'fra',
+            { logger: m => {
+                    console.log(m);
+                    if (m.status=="recognizing text" && m.progress==1) {
+                        console.log("finished !");
+                    }
+                } 
+            })
+            .then(({ data: { text } }) => {
+                    loader.innerHTML=" ";
+                    console.log("coucou", text);
+                    displayResult(element, text);
+            })
+    }
 };
