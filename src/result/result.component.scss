@@ -1,0 +1,14 @@
+.non-editable{
+    border: 3px solid yellow;
+}
+
+.editable{
+    border: 3px solid green;
+}
+
+.loader{
+    z-index: 1;
+    position: fixed; 
+    left: 45%; 
+    top: 45%;
+}

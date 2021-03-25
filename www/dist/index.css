@@ -6593,11 +6593,17 @@ body {
   background-color: #fafafa;
   font-size: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  height: 100vh; }
+  min-height: 100vh; }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1; }
 
 nav {
-  background-color: #01579b !important;
-  padding-left: 1.25em; }
+  background-color: #01579b !important; }
 
 .camera {
   background-color: #c2185b;
@@ -6620,10 +6626,6 @@ label, span {
 legend {
   font-weight: bold;
   font-size: 1.5em; }
-
-form {
-  text-align: center;
-  background-color: #e9f0d8; }
 
 section {
   position: relative; }
@@ -6694,14 +6696,12 @@ section {
 .col {
   margin: 0; }
 
+.form {
+  text-align: center;
+  background-color: #e9f0d8; }
+
 .icon-align {
   text-align: right; }
-
-.loader {
-  z-index: 1;
-  position: fixed;
-  left: 50%;
-  top: 50%; }
 
 .facture {
   width: 100vw;
@@ -6711,22 +6711,18 @@ section {
   width: 100%; }
 
 .webcam {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  object-fit: contain;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: -1; }
+  left: 0; }
 
 canvas {
   display: none; }
 
-.settings-butons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; }
+.blackMain {
+  background-color: black;
+  width: 100%;
+  height: 100vh; }
 
 .popup-title {
   text-align: center;
@@ -6779,4 +6775,20 @@ p {
 
 .contact {
   margin-left: 15px; }
+
+.menu {
+  background-color: #e7e7eb;
+  padding: 1rem 0; }
+
+.non-editable {
+  border: 3px solid yellow; }
+
+.editable {
+  border: 3px solid green; }
+
+.loader {
+  z-index: 1;
+  position: fixed;
+  left: 45%;
+  top: 45%; }
 
